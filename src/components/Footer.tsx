@@ -1,8 +1,15 @@
 
 import { Link } from "react-router-dom";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, MessageCircle } from "lucide-react";
 
 const Footer = () => {
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "923341500888"; // Your number in international format without +
+    const message = "Hello! I'm interested in your software solutions and would like to discuss my project requirements.";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
@@ -28,7 +35,16 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 text-sm">
                 <Phone className="h-4 w-4 text-primary" />
-                <span>+971 XX XXX XXXX</span>
+                <span>+92 334 1500888</span>
+              </div>
+              <div className="flex items-center space-x-2 text-sm">
+                <MessageCircle className="h-4 w-4 text-green-500" />
+                <button 
+                  onClick={handleWhatsAppClick}
+                  className="hover:text-green-400 transition-colors"
+                >
+                  WhatsApp Chat
+                </button>
               </div>
             </div>
           </div>
@@ -118,7 +134,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-300 text-sm">
-            © 2024 OOP Solutions. All rights reserved. | Proudly serving Dubai and beyond.
+            © 2024 OOP Solutions. All rights reserved. | Founded by Abdur Rehman Afzal
           </p>
         </div>
       </div>

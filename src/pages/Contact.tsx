@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -37,6 +37,13 @@ const Contact = () => {
     });
   };
 
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "923341500888"; // Your number in international format without +
+    const message = "Hello! I'm interested in your software solutions and would like to discuss my project requirements.";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   const contactInfo = [
     {
       icon: <Mail className="h-6 w-6 text-primary" />,
@@ -47,8 +54,15 @@ const Contact = () => {
     {
       icon: <Phone className="h-6 w-6 text-primary" />,
       title: "Phone",
-      content: "+971 XX XXX XXXX",
-      link: "tel:+971xxxxxxxxx"
+      content: "+92 334 1500888",
+      link: "tel:+923341500888"
+    },
+    {
+      icon: <MessageCircle className="h-6 w-6 text-green-500" />,
+      title: "WhatsApp",
+      content: "Quick Chat",
+      link: "#",
+      action: handleWhatsAppClick
     },
     {
       icon: <MapPin className="h-6 w-6 text-primary" />,
@@ -77,6 +91,16 @@ const Contact = () => {
               Ready to transform your business with cutting-edge technology? 
               Let's discuss your project and explore how we can help you achieve your goals.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                onClick={handleWhatsAppClick}
+                className="bg-green-500 hover:bg-green-600 text-white"
+                size="lg"
+              >
+                <MessageCircle className="mr-2 h-4 w-4" />
+                Chat on WhatsApp
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -103,7 +127,14 @@ const Contact = () => {
                         {info.icon}
                         <div>
                           <div className="font-semibold">{info.title}</div>
-                          {info.link.startsWith('mailto:') || info.link.startsWith('tel:') ? (
+                          {info.action ? (
+                            <button 
+                              onClick={info.action}
+                              className="text-muted-foreground hover:text-green-500 transition-colors"
+                            >
+                              {info.content}
+                            </button>
+                          ) : info.link.startsWith('mailto:') || info.link.startsWith('tel:') ? (
                             <a href={info.link} className="text-muted-foreground hover:text-primary transition-colors">
                               {info.content}
                             </a>
