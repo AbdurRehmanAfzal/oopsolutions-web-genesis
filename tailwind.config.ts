@@ -67,14 +67,11 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom OOP Solutions brand colors
+				// Custom brand colors - black, white, #8F5F00
 				brand: {
-					blue: '#0066CC',
-					teal: '#008B8B',
-					'dark-blue': '#003366',
-					'light-blue': '#E6F3FF',
-					gray: '#6B7280',
-					'dark-gray': '#374151',
+					gold: '#8F5F00',
+					black: '#000000',
+					white: '#FFFFFF',
 				}
 			},
 			borderRadius: {
