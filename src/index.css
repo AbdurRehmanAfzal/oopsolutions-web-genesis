@@ -156,7 +156,7 @@ All colors MUST be HSL.
   }
 
   .luxury-hover {
-    @apply transition-all duration-700 hover:-translate-y-6 hover:shadow-2xl hover:shadow-gold/30 hover:scale-105;
+    @apply transition-all duration-700 hover:-translate-y-6 hover:shadow-2xl hover:shadow-accent/30 hover:scale-105;
   }
 
   .floating {
