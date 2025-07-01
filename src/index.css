@@ -18,7 +18,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 220 100% 30%;
+    --primary: 220 85% 45%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -27,7 +27,7 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 43 96% 56%;
+    --accent: 42 87% 55%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,7 +35,7 @@ All colors MUST be HSL.
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 220 100% 30%;
+    --ring: 220 85% 45%;
 
     --radius: 0.75rem;
 
@@ -59,7 +59,7 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 220 100% 30%;
+    --primary: 220 85% 55%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -68,7 +68,7 @@ All colors MUST be HSL.
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 43 96% 56%;
+    --accent: 42 87% 65%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -105,34 +105,34 @@ All colors MUST be HSL.
 
 @layer components {
   .gradient-bg {
-    background: linear-gradient(-45deg, #1a365d, #2d3748, #1a202c, #2b6cb0);
+    background: linear-gradient(-45deg, #2563eb, #3b82f6, #60a5fa, #1d4ed8);
     background-size: 400% 400%;
     animation: gradient-shift 8s ease-in-out infinite;
   }
 
   .luxury-gradient {
-    background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 25%, #f6e05e 50%, #2b6cb0 75%, #1a365d 100%);
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 25%, #fbbf24 50%, #2563eb 75%, #1d4ed8 100%);
     background-size: 300% 300%;
     animation: luxury-flow 12s ease-in-out infinite;
   }
 
   .glass-card {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl;
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl;
     box-shadow: 
-      0 8px 32px 0 rgba(31, 38, 135, 0.37),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+      0 8px 32px 0 rgba(59, 130, 246, 0.15),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
   }
 
   .luxury-card {
-    @apply bg-gradient-to-br from-white via-slate-50 to-blue-50 backdrop-blur-xl border border-slate-200/50 rounded-3xl shadow-2xl;
+    @apply bg-gradient-to-br from-white via-blue-50 to-amber-50 backdrop-blur-xl border border-blue-200/50 rounded-3xl shadow-2xl;
     box-shadow: 
-      0 25px 50px -12px rgba(0, 0, 0, 0.25),
+      0 25px 50px -12px rgba(59, 130, 246, 0.25),
       0 0 0 1px rgba(255, 255, 255, 0.1),
       inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #1a365d, #2b6cb0, #f6e05e);
+    background: linear-gradient(135deg, #1e40af, #3b82f6, #fbbf24);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -141,7 +141,7 @@ All colors MUST be HSL.
   }
 
   .gold-text {
-    background: linear-gradient(135deg, #f6e05e, #ecc94b, #d69e2e);
+    background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -152,11 +152,11 @@ All colors MUST be HSL.
   }
 
   .hover-lift {
-    @apply transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-blue-500/20;
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/20;
   }
 
   .luxury-hover {
-    @apply transition-all duration-700 hover:-translate-y-6 hover:shadow-2xl hover:shadow-accent/30 hover:scale-105;
+    @apply transition-all duration-500 hover:-translate-y-3 hover:shadow-xl hover:shadow-blue-500/25 hover:scale-102;
   }
 
   .floating {
@@ -179,7 +179,7 @@ All colors MUST be HSL.
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
     animation: shimmer 2s infinite;
   }
 }
@@ -219,7 +219,7 @@ All colors MUST be HSL.
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-10px);
   }
 }
 
@@ -229,8 +229,8 @@ All colors MUST be HSL.
     transform: scale(1);
   }
   50% {
-    opacity: 0.8;
-    transform: scale(1.05);
+    opacity: 0.9;
+    transform: scale(1.02);
   }
 }
 
