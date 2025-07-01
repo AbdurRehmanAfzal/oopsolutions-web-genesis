@@ -1,8 +1,7 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Crown } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -28,17 +27,20 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-xl bg-white/80 border-b border-white/20 shadow-lg">
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">O</span>
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-accent/50 transition-all duration-500">
+              <Crown className="text-white w-6 h-6" />
             </div>
-            <span className="font-poppins font-bold text-xl text-gradient">
-              OOP Solutions
-            </span>
+            <div className="flex flex-col">
+              <span className="font-poppins font-bold text-xl text-gradient">
+                OOP Solutions
+              </span>
+              <span className="text-xs text-accent font-medium">Dubai Excellence</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -47,10 +49,10 @@ const Header = () => {
               <NavigationMenuItem>
                 <Link
                   to="/"
-                  className={`px-4 py-2 rounded-md transition-colors ${
+                  className={`px-6 py-3 rounded-xl transition-all duration-300 font-medium ${
                     isActive("/")
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:bg-accent hover:text-accent-foreground"
+                      ? "bg-primary text-white shadow-lg"
+                      : "hover:bg-primary/10 hover:text-primary"
                   }`}
                 >
                   Home
@@ -59,26 +61,28 @@ const Header = () => {
               <NavigationMenuItem>
                 <Link
                   to="/about"
-                  className={`px-4 py-2 rounded-md transition-colors ${
+                  className={`px-6 py-3 rounded-xl transition-all duration-300 font-medium ${
                     isActive("/about")
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:bg-accent hover:text-accent-foreground"
+                      ? "bg-primary text-white shadow-lg"
+                      : "hover:bg-primary/10 hover:text-primary"
                   }`}
                 >
                   About
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="px-6 py-3 rounded-xl font-medium">
+                  Services
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid w-96 gap-3 p-4">
+                  <div className="grid w-96 gap-3 p-6 glass-card border-0 shadow-2xl">
                     {services.map((service) => (
                       <NavigationMenuLink key={service.path} asChild>
                         <Link
                           to={service.path}
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none space-y-1 rounded-xl p-4 leading-none no-underline outline-none transition-all duration-300 hover:bg-primary/10 hover:text-primary group"
                         >
-                          <div className="text-sm font-medium leading-none">
+                          <div className="text-sm font-medium leading-none group-hover:text-primary">
                             {service.name}
                           </div>
                         </Link>
@@ -90,10 +94,10 @@ const Header = () => {
               <NavigationMenuItem>
                 <Link
                   to="/portfolio"
-                  className={`px-4 py-2 rounded-md transition-colors ${
+                  className={`px-6 py-3 rounded-xl transition-all duration-300 font-medium ${
                     isActive("/portfolio")
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:bg-accent hover:text-accent-foreground"
+                      ? "bg-primary text-white shadow-lg"
+                      : "hover:bg-primary/10 hover:text-primary"
                   }`}
                 >
                   Portfolio
@@ -102,10 +106,10 @@ const Header = () => {
               <NavigationMenuItem>
                 <Link
                   to="/blog"
-                  className={`px-4 py-2 rounded-md transition-colors ${
+                  className={`px-6 py-3 rounded-xl transition-all duration-300 font-medium ${
                     isActive("/blog")
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:bg-accent hover:text-accent-foreground"
+                      ? "bg-primary text-white shadow-lg"
+                      : "hover:bg-primary/10 hover:text-primary"
                   }`}
                 >
                   Blog
@@ -116,8 +120,8 @@ const Header = () => {
 
           {/* CTA Button */}
           <Link to="/contact" className="hidden md:block">
-            <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity">
-              Get Started
+            <Button className="bg-gradient-to-r from-primary to-accent hover:shadow-lg hover:shadow-accent/50 transition-all duration-500 px-8 py-3 rounded-xl font-semibold shimmer">
+              Start Your Journey
             </Button>
           </Link>
 
@@ -134,8 +138,8 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
+          <div className="md:hidden glass-card rounded-2xl m-4 p-6">
+            <div className="space-y-4">
               <Link
                 to="/"
                 className="block px-3 py-2 rounded-md text-base font-medium hover:bg-accent"
